@@ -7,7 +7,7 @@ using System.Net.Sockets;
 using AceNetFrame.ace;
 using AceNetFrame.ace.auto;
 using GamelolLogServer.Util;
-
+using System.Threading;
 namespace GamelolLogServer
 {
     class Program
@@ -34,7 +34,7 @@ namespace GamelolLogServer
             }
             while (true)
             {
-
+                Thread.Sleep(360000);
             }
         }
     }

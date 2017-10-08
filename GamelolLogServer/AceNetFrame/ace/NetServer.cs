@@ -64,8 +64,8 @@ namespace AceNetFrame.ace
         /// </summary>
         public void init()
         {
-            Console.WriteLine("服务器已经启动，端口号为：【1995】");
-            userPool = new UserTokenPool(userMax);
+            Console.WriteLine("服务器已经启动，端口号为：【2001】");
+            userPool = new UserTokenPool(100);
             maxAcceptClient = new Semaphore(userMax, userMax);
             if (serEncode == null || serDecode == null) throw new Exception(" message encode or decode is null");
             if (center == null) throw new Exception("Center is null");
