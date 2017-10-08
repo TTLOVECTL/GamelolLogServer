@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using AceNetFrame.ace;
 using AceNetFrame.ace.auto;
-
+using GamelolLogServer.Util;
 
 namespace GamelolLogServer
 {
@@ -14,6 +14,7 @@ namespace GamelolLogServer
     {
         static void Main(string[] args)
         {
+            
             try
             {
                 NetServer server = new NetServer(10);

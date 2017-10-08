@@ -13,9 +13,12 @@ namespace GamelolLogServer
 
         private HanderInterface loginLogHandler;
 
+        private HanderInterface systemLogHandler;
+
         public HandlerCenter()
         {
             loginLogHandler = new LoginLogHandle();
+            systemLogHandler = new SystemLogHandle();
         }
 
         public override void MessageRecive(UserToken token, object message)
@@ -26,29 +29,16 @@ namespace GamelolLogServer
                 case LogType.LOGIN_LOG:
                     loginLogHandler.MessageRecevie(token,model);
                     break;
+                case LogType.SYSTEM_LOG:
+                    systemLogHandler.MessageRecevie(token,model);
+                    break;
             }
             
         }
 
         public override void ClientClose(UserToken token, string error)
         {
-            //Console.WriteLine("有客户端断开" + "---error:" + error);
-            //foreach(PlayerMessage playermessage in MapPlayer.mainMap){
-            //    if (playermessage.usertoken == token)
-            //    {
-            //        MapPlayer.mainMap.Remove(playermessage);
-            //        foreach (PlayerMessage playermessage1 in MapPlayer.mainMap) {
-            //            UserDao user = new UserDao();
-            //            user.userid = playermessage1.playerid;
-            //            user.username = playermessage1.playername;
-            //            user.posx = playermessage1.posx;
-            //            user.posy = playermessage1.posx;
-            //            SocketModel model = new SocketModel(1,1,1,user);
-            //            SendtoClient.write(playermessage1.usertoken, model);
-            //        }
-            //        break;
-            //    }
-            //}
+            Console.WriteLine("有客户端断开" + "---error:" + error);
         }
     }
 }
